@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "linear-programming-nutrition", "linear-programming-nutrition\linear-programming-nutrition.pyproj", "{C4685D51-EF89-4D48-A3F6-A1AC10FB260A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4685D51-EF89-4D48-A3F6-A1AC10FB260A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4685D51-EF89-4D48-A3F6-A1AC10FB260A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {662DF8E4-2255-48A9-8BC7-7C7EB0EFE78E}
+	EndGlobalSection
+EndGlobal

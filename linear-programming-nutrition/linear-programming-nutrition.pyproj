@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c4685d51-ef89-4d48-a3f6-a1ac10fb260a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>linear_programming_nutrition.py</StartupFile>
+    <StartupFile>Code\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="linear_programming_nutrition.py" />
+    <Compile Include="Code\main.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="C:\Users\jorda\source\repos\linear-programming-nutrition\linear-programming-nutrition\Code\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

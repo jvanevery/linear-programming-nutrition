@@ -41,6 +41,17 @@ class Food:
         self.total_protein = self.protein_per_amount*self.amount
         self.amount_unit = None
 
+    def print_summary(self):
+        print('Totals for food: {0:s}'.format(self.name))
+        print('Cost: {0:6.3f} dollars'.format(self.total_cost))
+        print('Calories: {0:6.3f} cal'.format(self.total_cals))
+        print('Saturated fat : {0:6.3f} mg'.format(self.total_sat_fat))
+        print('Sodium: {0:6.3f} mg'.format(self.total_sodium))
+        print('Protein: {0:6.3f} g'.format(self.total_protein))
+        print('Vitamin A: {0:6.3f} mcg'.format(self.total_vita))
+        print('Vitamin C: {0:6.3f} mg'.format(self.total_vitc))
+        print()
+
 '''
 Objective function to be minimized
 amounts: list of item amounts
@@ -113,17 +124,6 @@ def print_amounts(food_list):
         print('{0:5.3f} {1:s}'.format(food.amount, food.amount_unit))
     print()
 
-def print_single_summary(food):
-    print('Totals for food: {0:s}'.format(food.name))
-    print('Cost: {0:6.3f} dollars'.format(food.total_cost))
-    print('Calories: {0:6.3f} cal'.format(food.total_cals))
-    print('Saturated fat : {0:6.3f} mg'.format(food.total_sat_fat))
-    print('Sodium: {0:6.3f} mg'.format(food.total_sodium))
-    print('Protein: {0:6.3f} g'.format(food.total_protein))
-    print('Vitamin A: {0:6.3f} mcg'.format(food.total_vita))
-    print('Vitamin C: {0:6.3f} mg'.format(food.total_vitc))
-    print()
-
 def print_summary(food_list):
     total_cost = 0
     total_cals = 0
@@ -142,7 +142,7 @@ def print_summary(food_list):
         total_vitc = total_vitc + food.total_vitc
         total_vita = total_vita + food.total_vita
         total_sodium = total_sodium + food.total_sodium
-        print_single_summary(food)
+        food.print_summary()
     print('\nTotal nutrition values for this diet:\n')
     print('Cost: {0:6.3f} dollars'.format(total_cost))
     print('Calories: {0:6.3f} cal'.format(total_cals))

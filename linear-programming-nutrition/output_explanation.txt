@@ -1,0 +1,145 @@
+/*************************************************************************************************\
+ * This document explains why the sample solution looks the way it does.
+ * 
+ * author - jordan vanevery 
+ *
+ * TABLE OF CONTENTS:
+ *
+ * I.    THE DIET
+ * II.   EXPLANATION
+ * III.  REFERENCES 
+\*************************************************************************************************/
+
+***************************************************************************************************
+I. THE DIET
+***************************************************************************************************
+
+----Diet:----
+
+0.769 3.5oz servings of boneless skinless chicken breast  (2.69oz)
+6.478 3/4 cups of lucky charms with 1/2 cup skim milk  (4.86 cups lucky charms, 3.239 cups of milk)
+16.245 yellow corn tortillas (as is tradition)
+0.236 100g servings of raw broccoli (23.6g, about a spear of broccoli)
+0.000 avocados
+
+----Individual totals:----
+
+Totals for food: chicken breast
+Cost:  0.700 dollars
+Calories: 126.845 cal
+Saturated fat :  0.769 mg
+Sodium: 56.888 mg
+Protein: 26.138 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+Totals for food: lucky charms
+Cost:  1.749 dollars
+Calories: 971.631 cal
+Saturated fat :  0.000 mg
+Sodium: 1101.182 mg
+Protein: 12.955 g
+Vitamin A: 680.142 mcg
+Vitamin C: 58.298 mg
+
+Totals for food: corn tortilla
+Cost:  1.137 dollars
+Calories: 893.486 cal
+Saturated fat :  0.000 mg
+Sodium: 81.226 mg
+Protein: 16.245 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+Totals for food: broccoli
+Cost:  0.078 dollars
+Calories:  8.038 cal
+Saturated fat :  0.000 mg
+Sodium:  7.801 mg
+Protein:  0.662 g
+Vitamin A: 19.858 mcg
+Vitamin C: 31.702 mg
+
+Totals for food: avocado
+Cost:  0.000 dollars
+Calories:  0.000 cal
+Saturated fat :  0.000 mg
+Sodium:  0.000 mg
+Protein:  0.000 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+----Net Totals:----
+
+Cost:  3.664 dollars
+Calories: 2000.000 cal
+Saturated fat :  0.769 mg
+Sodium: 1247.098 mg
+Protein: 56.000 g
+Vitamin A: 700.000 mcg
+Vitamin C: 90.000 mg
+
+***************************************************************************************************
+II. EXPLANATION
+***************************************************************************************************
+The most notable observations to make right away are that the diet says you
+should eat about 16 yellow corn tortillas a day and no avocados. This can 
+be easily explained by our constraints and food properties. Below is a short
+explanation of why the amounts are what they are as a consequence of the linear
+optimization.
+
+----Avocado----
+None appears in the diet because avocado can break our saturated fat constraint
+easily, and there are cheaper options to get the same benefits that it might
+provide. For example broccoli is a much cheaper source of vitamin C, and corn
+tortillas are a much cheaper source of calories. There is no case in
+which avocado is a viable choice, unless it was dirt cheap, at which point we
+could only take a limited amount.
+
+----Broccoli----
+A small amount of makes an appearance because it can provide large amounts of
+vitamin C for not much cost. The small 23.6g of broccoli in the diet will make
+up about 30% of our daily vitamin C intake for only 8 cents. One might be 
+tempted to ask why then it's not constituting 100% of the vitamin C intake?
+This is because there is another source of vitamin C in the diet which is also
+a major contributor to the caloric requirement (two birds one stone).
+
+----Chicken Breast----
+Chicken breast appears in a decent amount of 2.69oz due to the fact that it
+has the highest protein amount per dollar of all items on the list. It 
+has the same fate as broccoli where it makes up 46% of the protein in the
+diet but no more. Again there is another item on the menu which can get the
+remaining protein needed into the diet while also giving a considerable amount
+of calories
+
+----Lucky Charms----
+Much to my surprise, lucky charms and skim milk came in as a heavyweight due to
+its ability to satisfy both caloric, vitamin, and protein requirements.
+It is by far the largest contributor to sodium intake on the list, but not 
+enough so that it can't be eaten in large amounts. An interesting observaiton
+to make is that our vitamin and protein requirements were met with their
+minimum amounts, however they could have been greater. They weren't greater
+because once they were satisfied with the addition of lucky charms, broccoli,
+and chicken, we had one food left with a much better cost/calorie ratio......
+
+----Corn Tortilla----
+The corn tortilla appears in massive quantities because of its unrivaled 
+ability to be cheap as hell and rich in energy. Because of its very 
+existence, it has enabled the strategy of: 'meet nutrient requirements
+the cheapest way possible, then stuff your face with corn tortillas
+you cheap, cheap madman'.
+
+
+***************************************************************************************************
+III. REFERENCES:
+***************************************************************************************************
+yellow corn tortilla - https://www.target.com/p/mission-174-yellow-corn-tortillas-30ct/-/A-14771991?sid=356S&ref=tgt_adv_XS000000&AFID=google_pla_df&fndsrc=tgtao&CPNG=PLA_Grocery%2BEssentials%2BShopping_Local&adgroup=SC_Grocery&LID=700000001170770pgs&network=g&device=c&location=9030455&gclid=Cj0KCQjwnqzWBRC_ARIsABSMVTPTeSgJO38FnDWlZB33O_Ry6vZt1-0Z747yM8ZEc1kR9UTlqRKDYzYaAlqnEALw_wcB&gclsrc=aw.ds
+lucky charms - https://www.generalmills.com/en/Brands/Cereals/lucky-charms/brand-product-list
+               https://www.walmart.com/ip/Lucky-Charms-Gluten-Free-Breakfast-Cereal-20-5-oz/17203448
+avocado - https://www.smithsfoodanddrug.com/p/avocado/0000000004046
+          http://www.myfitnesspal.com/food/calories/generic-1-whole-medium-avocado-82501442
+broccoli - http://nutritiondata.self.com/facts/vegetables-and-vegetable-products/2356/2
+         - https://www.smithsfoodanddrug.com/p/broccoli/0000000004060
+chicken breast - http://www.nationalchickencouncil.org/chicken-the-preferred-protein-for-your-health-and-budget/the-nutritional-value-of-chicken/
+               - https://www.smithsfoodanddrug.com/p/heritage-farm-chicken-breasts-with-rib-meat-boneless-skinless-5-6-per-pack-/0021065600000
+			   - estimated an average chicken breast uncooked to be 5oz

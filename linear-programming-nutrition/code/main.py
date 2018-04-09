@@ -54,7 +54,7 @@ def objective(amounts, *args):
 
 #TODO: Make a general linear constraint function
 '''
-Caloric constraint, total calories needs to be at 2000 
+Caloric constraint, total calories needs to be equal to CALORIE_REQ 
 '''
 def constraint_cal(amounts, *args):
     total_cal = 0.0
@@ -63,7 +63,7 @@ def constraint_cal(amounts, *args):
     return (total_cal-CALORIE_REQ)
 
 '''
-Sodium constraint, 2400mg or less of sodium
+Sodium constraint, SODIUM_LIM mg or less of sodium
 '''
 def constraint_sodium(amounts, *args):
     total_sodium = 0.0
@@ -72,7 +72,7 @@ def constraint_sodium(amounts, *args):
     return -(total_sodium - SODIUM_LIM) 
 
 '''
-Saturated fat constraint, 20g or less of saturated fat
+Saturated fat constraint, SATURATED_FAT_LIM g or less of saturated fat
 '''
 def constraint_sat_fat(amounts, *args):
     total_sat_fat = 0.0
@@ -81,7 +81,7 @@ def constraint_sat_fat(amounts, *args):
     return -(total_sat_fat - SATURATED_FAT_LIM) 
 
 '''
-Vitamin C constraint, 90mg or more of Vitamin C
+Vitamin C constraint, VITAMIN_C_MIN mg or more of Vitamin C
 '''
 def constraint_vitc(amounts, *args):
     total_vitc = 0.0
@@ -90,7 +90,7 @@ def constraint_vitc(amounts, *args):
     return (total_vitc - VITAMIN_C_MIN) 
 
 '''
-Vitamin A constraint, 700mcg or more of Vitamin A
+Vitamin A constraint, VITAMIN_A_MIN mcg or more of Vitamin A
 '''
 def constraint_vita(amounts, *args):
     total_vita = 0.0
@@ -99,7 +99,7 @@ def constraint_vita(amounts, *args):
     return (total_vita - VITAMIN_A_MIN) 
 
 '''
-Protein constraint, 56g or more of protein
+Protein constraint, PROTEIN_MIN g or more of protein
 '''
 def constraint_protein(amounts, *args):
     total_protein = 0.0
@@ -110,7 +110,19 @@ def constraint_protein(amounts, *args):
 
 def print_amounts(food_list):
     for food in food_list:
-        print('{0:6.3f} {1:s}'.format(food.amount, food.amount_unit))
+        print('{0:5.3f} {1:s}'.format(food.amount, food.amount_unit))
+    print()
+
+def print_single_summary(food):
+    print('Totals for food: {0:s}'.format(food.name))
+    print('Cost: {0:6.3f} dollars'.format(food.total_cost))
+    print('Calories: {0:6.3f} cal'.format(food.total_cals))
+    print('Saturated fat : {0:6.3f} mg'.format(food.total_sat_fat))
+    print('Sodium: {0:6.3f} mg'.format(food.total_sodium))
+    print('Protein: {0:6.3f} g'.format(food.total_protein))
+    print('Vitamin A: {0:6.3f} mcg'.format(food.total_vita))
+    print('Vitamin C: {0:6.3f} mg'.format(food.total_vitc))
+    print()
 
 def print_summary(food_list):
     total_cost = 0
@@ -120,17 +132,18 @@ def print_summary(food_list):
     total_vitc = 0
     total_vita = 0
     total_sodium = 0
-    for food in food_list:
-        total_cost = total_cost + (food.amount)*(food.cost_per_amount)
-        total_cals = total_cals + (food.amount)*(food.cals_per_amount)
-        total_sat_fat = total_sat_fat + (food.amount)*(food.sat_fat_per_amount)
-        total_protein = total_protein + (food.amount)*(food.protein_per_amount)
-        total_vitc = total_vitc + (food.amount)*(food.vitc_per_amount)
-        total_vita = total_vita + (food.amount)*(food.vita_per_amount)
-        total_sodium = total_sodium + (food.amount)*(food.sodium_per_amount)
-    print('Daily diet')
+    print('Daily diet:\n')
     print_amounts(food_list)
-    print('\nTotal information for this daily diet:')
+    for food in food_list:
+        total_cost = total_cost + food.total_cost
+        total_cals = total_cals + food.total_cals
+        total_sat_fat = total_sat_fat + food.total_sat_fat
+        total_protein = total_protein + food.total_protein
+        total_vitc = total_vitc + food.total_vitc
+        total_vita = total_vita + food.total_vita
+        total_sodium = total_sodium + food.total_sodium
+        print_single_summary(food)
+    print('\nTotal nutrition values for this diet:\n')
     print('Cost: {0:6.3f} dollars'.format(total_cost))
     print('Calories: {0:6.3f} cal'.format(total_cals))
     print('Saturated fat : {0:6.3f} mg'.format(total_sat_fat))
@@ -142,16 +155,16 @@ def print_summary(food_list):
 
 def main():
     #Initialize food items.
-    #TODO: Don't hardcode these, make .txt files that hold the info
+    #TODO: Don't hardcode these, make a .txt file that holds the data and extract it when needed
 
     #per 3.5oz skinless boneless chicken breast
-    chicken_breast = Food(name='chicken breast', cost_per_amount=2.0, cals_per_amount=165, 
+    chicken_breast = Food(name='chicken breast', cost_per_amount=0.91, cals_per_amount=165, 
                  sat_fat_per_amount=1, vitc_per_amount=0, vita_per_amount=0,
                  protein_per_amount=34, sodium_per_amount=74)
     chicken_breast.amount_unit = '3.5oz skinless boneless chicken breast'
     #per 3/4 cup of cereal including skim milk
-    lucky_charms = Food(name='lucky charms', cost_per_amount=0.35, cals_per_amount=150,
-                        sat_fat_per_amount=0.1, vitc_per_amount=9, vita_per_amount=105,
+    lucky_charms = Food(name='lucky charms', cost_per_amount=0.27, cals_per_amount=150,
+                        sat_fat_per_amount=0.0, vitc_per_amount=9, vita_per_amount=105,
                         protein_per_amount=2, sodium_per_amount=170)
     lucky_charms.amount_unit = '0.75 cups lucky charms with 0.5 cups skim milk'
     #per tortilla
@@ -160,15 +173,15 @@ def main():
                          vita_per_amount=0, protein_per_amount=1)
     corn_tortilla.amount_unit = 'tortilla'
     #per 100g broccoli
-    broccoli = Food(name='broccoli', cost_per_amount=0.57, cals_per_amount=55,
-                    sat_fat_per_amount=0, sodium_per_amount=33, vitc_per_amount=133,
+    broccoli = Food(name='broccoli', cost_per_amount=0.33, cals_per_amount=34,
+                    sat_fat_per_amount=0, sodium_per_amount=33, vitc_per_amount=134.1,
                     vita_per_amount=84, protein_per_amount=2.8)
-    broccoli.amount_unit = '100g broccoli'
+    broccoli.amount_unit = '100g raw broccoli'
     #per avocado
-    avocado = Food(name='avocado', cost_per_amount=1.27, cals_per_amount=322,
-                   sat_fat_per_amount=4.3, sodium_per_amount=14, vitc_per_amount=29.7,
-                   vita_per_amount=35, protein_per_amount=2.8)
-    avocado.amount_unit = 'avocado'
+    avocado = Food(name='avocado', cost_per_amount=0.69, cals_per_amount=250,
+                   sat_fat_per_amount=3, sodium_per_amount=10, vitc_per_amount=15.3,
+                   vita_per_amount=70, protein_per_amount=3)
+    avocado.amount_unit = 'medium sized avocado'
 
     food_list = [chicken_breast, lucky_charms, corn_tortilla, broccoli, avocado]
 
@@ -203,11 +216,16 @@ def main():
     cons = (con_cal, con_sodium, con_sat_fat, con_vitc, con_vita, con_protein)
     min_object = minimize(fun=objective, x0=guess, args=(costs), constraints=cons, bounds=bnds)
     
-    #grab minimized amounts, calculate total cals/costs for each food item
+    #grab minimized amounts, calculate totals for each item
     for food, amount in zip(food_list, min_object.x):
         food.amount = amount
         food.total_cost = food.amount*food.cost_per_amount
         food.total_cals = food.amount*food.cals_per_amount
+        food.total_sat_fat = food.amount*food.sat_fat_per_amount
+        food.total_protein = food.amount*food.protein_per_amount
+        food.total_sodium = food.amount*food.sodium_per_amount
+        food.total_vitc = food.amount*food.vitc_per_amount
+        food.total_vita = food.amount*food.vita_per_amount
 
     print_summary(food_list)
 

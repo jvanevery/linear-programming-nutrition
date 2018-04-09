@@ -1,0 +1,63 @@
+Daily diet:
+
+0.769 3.5oz skinless boneless chicken breast
+6.478 0.75 cups lucky charms with 0.5 cups skim milk
+16.245 tortilla
+0.236 100g raw broccoli
+0.000 medium sized avocado
+
+Totals for food: chicken breast
+Cost:  0.700 dollars
+Calories: 126.845 cal
+Saturated fat :  0.769 mg
+Sodium: 56.888 mg
+Protein: 26.138 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+Totals for food: lucky charms
+Cost:  1.749 dollars
+Calories: 971.631 cal
+Saturated fat :  0.000 mg
+Sodium: 1101.182 mg
+Protein: 12.955 g
+Vitamin A: 680.142 mcg
+Vitamin C: 58.298 mg
+
+Totals for food: corn tortilla
+Cost:  1.137 dollars
+Calories: 893.486 cal
+Saturated fat :  0.000 mg
+Sodium: 81.226 mg
+Protein: 16.245 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+Totals for food: broccoli
+Cost:  0.078 dollars
+Calories:  8.038 cal
+Saturated fat :  0.000 mg
+Sodium:  7.801 mg
+Protein:  0.662 g
+Vitamin A: 19.858 mcg
+Vitamin C: 31.702 mg
+
+Totals for food: avocado
+Cost:  0.000 dollars
+Calories:  0.000 cal
+Saturated fat :  0.000 mg
+Sodium:  0.000 mg
+Protein:  0.000 g
+Vitamin A:  0.000 mcg
+Vitamin C:  0.000 mg
+
+
+Total nutrition values for this diet:
+
+Cost:  3.664 dollars
+Calories: 2000.000 cal
+Saturated fat :  0.769 mg
+Sodium: 1247.098 mg
+Protein: 56.000 g
+Vitamin A: 700.000 mcg
+Vitamin C: 90.000 mg
